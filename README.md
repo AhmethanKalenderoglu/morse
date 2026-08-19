@@ -21,6 +21,6 @@ morse.morse2text(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")       # 'hello wo
 
 ## Notes
 
-- Supports the letters a–z and spaces. Unrecognized characters are replaced with `*`. 
+- Supports the letters a–z, the digits 0–9, common punctuation and spaces. Unrecognized characters are replaced with `*`. 
 The characters you add to the alphabet will also work; just don't forget to add a space at the end of the response for the ones you've added
 
