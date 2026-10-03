@@ -1,26 +1,55 @@
 # morse
 
-Two-way morse code translator in python.
+[![tests](https://github.com/AhmethanKalenderoglu/morse/actions/workflows/ci.yml/badge.svg)](https://github.com/AhmethanKalenderoglu/morse/actions/workflows/ci.yml)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-## Run interactively
+A two-way Morse code translator in Python. One file, no dependencies, works as a command line tool and as a module.
+
+## Install
 
 ```
-python morse.py
+pip install git+https://github.com/AhmethanKalenderoglu/morse.git
 ```
 
-Choose `t` for text → Morse, or `m` for Morse → text.
+Or just download `morse.py`. Python 3.9+ is required.
 
-## Use as a module
+## Command line
 
+```
+$ morse -t "hello world"
+.... . .-.. .-.. ---  .-- --- .-. .-.. -..
+
+$ morse -m ".... . .-.. .-.. ---  .-- --- .-. .-.. -.."
+hello world
+```
+
+Run `morse` with no arguments for the interactive prompt (`t` = text to Morse, `m` = Morse to text). Without installing, use `python morse.py` instead of `morse`.
+
+## As a module
+
+```python
 import morse
 
-morse.text2morse("hello world")   # '.... . .-.. .-.. ---  .-- --- .-. .-.. -..'
+morse.text2morse("hello world")
+# '.... . .-.. .-.. ---  .-- --- .-. .-.. -..'
 
-morse.morse2text(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")       # 'hello world'
+morse.morse2text(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
+# 'hello world'
+```
 
+## Format
 
-## Notes
+- Letters are separated by one space, words by two spaces.
+- Supports a-z, 0-9, common punctuation (`. , ? ' ! / ( ) & : ; = + - _ " $ @`) and spaces. Input is case-insensitive.
+- Unrecognized characters become `*` in both directions.
+- To add a character, add it to the `alphabet` dict in `morse.py`. Keep the trailing space in its code.
 
-- Supports the letters a–z, the digits 0–9, common punctuation and spaces. Unrecognized characters are replaced with `*`. 
-The characters you add to the alphabet will also work; just don't forget to add a space at the end of the response for the ones you've added
+## Tests
 
+```
+python -m unittest discover -s tests -v
+```
+
+## License
+
+MIT

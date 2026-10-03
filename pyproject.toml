@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "morse-translate"
+version = "1.1.0"
+description = "Two-way Morse code translator: library and command line tool, no dependencies."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Ahmethan Kalenderoglu" }]
+keywords = ["morse", "morse-code", "translator", "cli"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Communications :: Ham Radio",
+    "Topic :: Text Processing",
+]
+
+[project.urls]
+Homepage = "https://github.com/AhmethanKalenderoglu/morse"
+
+[project.scripts]
+morse = "morse:main"
+
+[tool.setuptools]
+py-modules = ["morse"]
